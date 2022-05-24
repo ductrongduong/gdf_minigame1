@@ -2,48 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e4d55f2b-12a8-484d-a811-f49e89a3e91c" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/assests/background.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assests/bird.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assests/ground.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assests/picture.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assests/pipe.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assests/target.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/minigame1/background.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/minigame1/ground.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gamescript.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/loadassets.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Bird.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GameSetting.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Pipe.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/PipePair.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project.json" beforeDir="false" afterPath="$PROJECT_DIR$/project.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/base/Resource.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/base/UIFactory.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/base/network/GameClient.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/base/network/GameClientListener.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/base/network/InPacketFactory.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/Resource.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/ResourceAnimation.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/framework/AnimationMgr.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/framework/Framework.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/framework/GUI.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/framework/Localization.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/framework/Network.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/framework/PoolObject.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/framework/StringUtils.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/framework/UserData.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/framework/libs/aes.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/framework/libs/crypt.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/framework/libs/md5.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/framework/libs/signals.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/framework/libs/underscore.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/animation/ScreenDragonbones.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/localization/ScreenLocalization.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/mainmenu/ScreenMenu.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/minigame1/MinigameScene.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/testnetwork/ScreenNetwork.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/testnetwork/network/Network.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/testnetwork/network/Packet.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gamescript.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/gamescript.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -581,6 +546,17 @@
       <option name="USE_KEYWORD" value="false" />
       <method />
     </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="index.html" type="JavascriptDebugType" temporary="true" uri="http://localhost:63342/HelloJavascript/index.html" useBuiltInWebServerPort="true">
       <RunnerSettings RunnerId="JavascriptDebugRunner" />
       <ConfigurationWrapper RunnerId="JavascriptDebugRunner" />
@@ -745,6 +721,7 @@
       <workItem from="1653295776758" duration="4842000" />
       <workItem from="1653319742003" duration="7810000" />
       <workItem from="1653372349462" duration="836000" />
+      <workItem from="1653373802270" duration="8999000" />
     </task>
     <servers />
   </component>

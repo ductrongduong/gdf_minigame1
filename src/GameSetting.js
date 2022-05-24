@@ -1,0 +1,11 @@
+var background;
+var gameLayer;
+var scrollSpeed = 2;
+var backgroundLoopingPoint = 413;
+var bird;
+var gameGravity = -0.05;
+var gameThrust = .2;
+var size = cc.director.getWinSize();
+var gapHeight = 90;
+var pipeHeight = 288;
+var pipeWidth = 70;

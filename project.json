@@ -12,13 +12,18 @@
         "external"
     ],
     "jsListOrder": [
+        "src/GameSetting.js",
         "src/data/**/*.js",
         "src/framework/**/*.js",
         "src/gui/screen/**/*.js",
         "src/**/*.js"
     ],
     "jsList": [
+        "src/GameSetting.js",
+        "src/Bird.js",
         "src/gamescript.js",
-        "src/loadassets.js"
+        "src/loadassets.js",
+        "src/Pipe.js",
+        "src/PipePair.js"
     ]
 }
