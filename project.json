@@ -24,6 +24,7 @@
         "src/gamescript.js",
         "src/loadassets.js",
         "src/Pipe.js",
-        "src/PipePair.js"
+        "src/PipePair.js",
+        "src/Utinity.js"
     ]
 }

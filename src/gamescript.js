@@ -1,13 +1,13 @@
 
-var gameScene = cc.Scene.extend({
+var GameScene = cc.Scene.extend({
     onEnter:function () {
         this._super();
-        gameLayer = new game();
+        gameLayer = new Game();
         gameLayer.init();
         this.addChild(gameLayer);
     }
 });
-var game = cc.Layer.extend({
+var Game = cc.Layer.extend({
     init:function () {
         this._super();
         cc.eventManager.addListener({
@@ -22,7 +22,7 @@ var game = cc.Layer.extend({
         background = new ScrollingBG();
         this.addChild(background);
         this.scheduleUpdate();
-        this.schedule(this.addPipe,3);
+        this.schedule(this.addPipe,1.5);
         bird = new Bird();
         this.addChild(bird);
     },
@@ -44,13 +44,13 @@ var ScrollingBG = cc.Sprite.extend({
         this.initWithFile("assests/background.png");
     },
     onEnter:function() {
-        this.setPosition(backgroundLoopingPoint,160);
+        this.setPosition(BACKGROUND_LOOPING_POINT,160);
     },
     scroll:function(){
         this.setPosition(this.getPosition().
-            x-scrollSpeed,this.getPosition().y);
+            x-SCROLL_SPEED,this.getPosition().y);
         if(this.getPosition().x<0){
-            this.setPosition(this.getPosition().x+backgroundLoopingPoint,this.getPosition().y);
+            this.setPosition(this.getPosition().x+BACKGROUND_LOOPING_POINT,this.getPosition().y);
         }
     }
 });

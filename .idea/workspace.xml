@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e4d55f2b-12a8-484d-a811-f49e89a3e91c" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Bird.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/GameSetting.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Pipe.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/PipePair.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Utinity.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project.json" beforeDir="false" afterPath="$PROJECT_DIR$/project.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Bird.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bird.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GameSetting.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameSetting.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PipePair.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/PipePair.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gamescript.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/gamescript.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -722,6 +723,21 @@
       <workItem from="1653319742003" duration="7810000" />
       <workItem from="1653372349462" duration="836000" />
       <workItem from="1653373802270" duration="8999000" />
+      <workItem from="1653383765026" duration="827000" />
+      <workItem from="1653384778872" duration="1238000" />
+      <workItem from="1653386090508" duration="377000" />
+      <workItem from="1653386681254" duration="1553000" />
+      <workItem from="1653388281302" duration="317000" />
+      <workItem from="1653388873942" duration="47000" />
+      <workItem from="1653447808456" duration="1096000" />
+      <workItem from="1653453022824" duration="1325000" />
+      <workItem from="1653454550426" duration="1133000" />
+      <workItem from="1653459079423" duration="986000" />
+      <workItem from="1653460296564" duration="501000" />
+      <workItem from="1653460976940" duration="894000" />
+      <workItem from="1653461939988" duration="753000" />
+      <workItem from="1653462745949" duration="1599000" />
+      <workItem from="1653464649021" duration="5995000" />
     </task>
     <servers />
   </component>
