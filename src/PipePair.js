@@ -9,6 +9,7 @@ var PipePair = cc.Sprite.extend({
         this.addChild(this.top);
         this.addChild(this.bottom);
         this.top.setRotation(180.0);
+        this.isPassed = false;
         // cc.log("test 1", JSON.stringify(Utinity.getWorldPositionOfNode(this.top)));
         // cc.log("test 2", JSON.stringify(Utinity.getWorldPositionOfNode(this.bottom)));
     },
@@ -16,6 +17,9 @@ var PipePair = cc.Sprite.extend({
         this._super();
         var moveAction= cc.MoveTo.create(5, cc.p(-1000, this.y));
         this.runAction(moveAction);
+        // if (!gameLayer.isRunningGame) {
+        //     this.stopAllActions();
+        // }
         this.scheduleUpdate();
     },
 
@@ -28,24 +32,23 @@ var PipePair = cc.Sprite.extend({
         var topConverted = Utinity.getWorldPositionOfNode(this.top);
         var bottomConverted = Utinity.getWorldPositionOfNode(this.bottom);
         // console.log(JSON.stringify(topConverted));
+        // console.log(JSON.stringify(birdBoundingBox));
         birdBoundingBox.x -= birdBoundingBox.width/2; birdBoundingBox.y -= birdBoundingBox.height/2;
         topBoundingBox.x= topConverted.x; topBoundingBox.y = topConverted.y;
         topBoundingBox.x -= topBoundingBox.width/2; topBoundingBox.y -= topBoundingBox.height/2;
         bottomBoundingBox.x= bottomConverted.x; bottomBoundingBox.y = bottomConverted.y;
         bottomBoundingBox.x -= bottomBoundingBox.width/2; bottomBoundingBox.y -= bottomBoundingBox.height/2;
         bottomBoundingBox.height -= 25;
-        // console.log( JSON.stringify(birdBoundingBox));
-        // console.log( JSON.stringify(topBoundingBox));
-        // console.log(JSON.stringify(bottomBoundingBox));
 
+        if (birdBoundingBox.x > topBoundingBox.x && !this.isPassed) {
+            score++;
+            console.log(JSON.stringify(score));
+            this.isPassed = true;
+        }
 
         if ((cc.rectIntersectsRect(birdBoundingBox, bottomBoundingBox) || cc.rectIntersectsRect(birdBoundingBox, topBoundingBox)) && bird.invulnerability==0) {
             restartGame();
         }
-        // if (cc.rectIntersectsRect(birdBoundingBox, bottomBoundingBox)) {
-        //     restartGame();
-        // }
-
 
         if(this.getPosition().x<-800){
             console.log("Remove Pipe");
@@ -54,6 +57,8 @@ var PipePair = cc.Sprite.extend({
     }
 });
 function restartGame() {
+    gameLayer.stopGame();
+    score = 0;
     bird.ySpeed = 0;
     bird.setPosition(bird.getPosition().x, 160);
     bird.invulnerability=300;

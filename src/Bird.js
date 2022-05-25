@@ -13,6 +13,7 @@ var Bird = cc.Sprite.extend({
     updateY:function() {
         if(this.engineOn){
             this.ySpeed += GAME_THRUST;
+            this.engineOn = false;
         }
         if(this.invulnerability>0){
             this.invulnerability --;
