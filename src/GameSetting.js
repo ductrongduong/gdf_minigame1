@@ -10,3 +10,4 @@ var GAP_HEIGHT = 90;
 var PIPE_HEIGHT = 288;
 var pipeWidth = 70;
 var score = 0;
+var scoreText;

@@ -10,7 +10,7 @@ var GameScene = cc.Scene.extend({
 var Game = cc.Layer.extend({
     init:function () {
         this._super();
-        this.isRunningGame = true;
+        // this.isRunningGame = true;
         cc.eventManager.addListener({
             event: cc.EventListener.MOUSE,
             onMouseDown: function(event){
@@ -26,27 +26,31 @@ var Game = cc.Layer.extend({
         this.schedule(this.addPipe,1.5);
         bird = new Bird();
         this.addChild(bird);
+
+        //add score
+        scoreText = cc.LabelTTF.create('Score : 0',  'Times New Roman', 25, cc.size(100,100), cc.TEXT_ALIGNMENT_LEFT);
+        this.addChild(scoreText);
+        scoreText.setPosition(cc.winSize.width / 2, cc.winSize.height * 3 / 4);
     },
-    stopGame: function () {
-         this.isRunningGame = false;
-    },
+    // stopGame: function () {
+    //      this.isRunningGame = false;
+    // },
     update:function(dt){
-        if (!this.isRunningGame)
-            return;
+        // if (!this.isRunningGame)
+        //     return;
         background.scroll();
         bird.updateY();
 
     },
     addPipe:function(event){
         var pipes = new PipePair();
-        if (gameLayer.isRunningGame) {
-            this.addChild(pipes, 1);
-        }
+        this.addChild(pipes, 1);
     },
     removePipe:function(pipe){
         this.removeChild(pipe);
     }
 });
+//hello
 var ScrollingBG = cc.Sprite.extend({
     ctor:function() {
         this._super();
@@ -58,7 +62,7 @@ var ScrollingBG = cc.Sprite.extend({
     scroll:function(){
         this.setPosition(this.getPosition().
             x-SCROLL_SPEED,this.getPosition().y);
-        if(this.getPosition().x<0 && gameLayer.isRunningGame){
+        if(this.getPosition().x<0){
             this.setPosition(this.getPosition().x+BACKGROUND_LOOPING_POINT,this.getPosition().y);
         }
     }

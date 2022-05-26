@@ -42,6 +42,7 @@ var PipePair = cc.Sprite.extend({
 
         if (birdBoundingBox.x > topBoundingBox.x && !this.isPassed) {
             score++;
+            scoreText.setString("Score: "+ score);
             console.log(JSON.stringify(score));
             this.isPassed = true;
         }
@@ -51,13 +52,13 @@ var PipePair = cc.Sprite.extend({
         }
 
         if(this.getPosition().x<-800){
-            console.log("Remove Pipe");
+            // console.log("Remove Pipe");
             gameLayer.removePipe(this);
         }
     }
 });
 function restartGame() {
-    gameLayer.stopGame();
+    // gameLayer.stopGame();
     score = 0;
     bird.ySpeed = 0;
     bird.setPosition(bird.getPosition().x, 160);
