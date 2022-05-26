@@ -48,7 +48,12 @@ var PipePair = cc.Sprite.extend({
         }
 
         if ((cc.rectIntersectsRect(birdBoundingBox, bottomBoundingBox) || cc.rectIntersectsRect(birdBoundingBox, topBoundingBox)) && bird.invulnerability==0) {
-            restartGame();
+            // this.stopAllActions();
+            var listChild = gameLayer.getChildren();
+            for (var i in listChild) {
+                listChild[i].stopAllActions();
+            }
+            pauseGame();
         }
 
         if(this.getPosition().x<-800){
@@ -57,10 +62,19 @@ var PipePair = cc.Sprite.extend({
         }
     }
 });
+
+function pauseGame() {
+    // gameLayer.addChild(restartSprite);
+    // restartSprite.setPosition(cc.winSize.width / 2, cc.winSize.height / 2);
+    gameLayer.pause();
+
+
+
+}
+
 function restartGame() {
     // gameLayer.stopGame();
     score = 0;
-    bird.ySpeed = 0;
-    bird.setPosition(bird.getPosition().x, 160);
-    bird.invulnerability=300;
+    cc.director.runScene(new GameScene());
+
 }

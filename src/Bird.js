@@ -12,7 +12,7 @@ var Bird = cc.Sprite.extend({
     },
     updateY:function() {
         if(this.engineOn){
-            this.ySpeed += GAME_THRUST;
+            this.ySpeed = GAME_THRUST;
             this.engineOn = false;
         }
         if(this.invulnerability>0){
@@ -22,13 +22,10 @@ var Bird = cc.Sprite.extend({
         this.setPosition(this.getPosition().x,this.getPosition().y+this.ySpeed);
         this.ySpeed += GAME_GRAVITY;
         if (this.ySpeed > 0) {
-            this.setRotation(-45);
-        }
-        else if (this.ySpeed == 0) {
-
+            this.setRotation(-35);
         }
         else {
-            this.setRotation(45);
+            this.setRotation(35);
         }
     }
 });

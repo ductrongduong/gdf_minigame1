@@ -27,10 +27,17 @@ var Game = cc.Layer.extend({
         bird = new Bird();
         this.addChild(bird);
 
+        // this.addChild(restartSprite);
+        // var restartSprite = new RestartSprite();
+        // this.addChild(restartSprite);
+        // restartSprite.setPosition(cc.winSize.width / 2, cc.winSize.height / 2);
+
         //add score
         scoreText = cc.LabelTTF.create('Score : 0',  'Times New Roman', 25, cc.size(100,100), cc.TEXT_ALIGNMENT_LEFT);
         this.addChild(scoreText);
         scoreText.setPosition(cc.winSize.width / 2, cc.winSize.height * 3 / 4);
+        scoreText.setGlobalZOrder(1);
+
     },
     // stopGame: function () {
     //      this.isRunningGame = false;
@@ -45,9 +52,13 @@ var Game = cc.Layer.extend({
     addPipe:function(event){
         var pipes = new PipePair();
         this.addChild(pipes, 1);
+        pipes.setGlobalZOrder(2);
     },
     removePipe:function(pipe){
         this.removeChild(pipe);
+    },
+    removeBird:function (bird) {
+        this.removeChild(bird);
     }
 });
 //hello
