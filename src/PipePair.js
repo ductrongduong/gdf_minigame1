@@ -39,6 +39,7 @@ var PipePair = cc.Sprite.extend({
         bottomBoundingBox.x= bottomConverted.x; bottomBoundingBox.y = bottomConverted.y;
         bottomBoundingBox.x -= bottomBoundingBox.width/2; bottomBoundingBox.y -= bottomBoundingBox.height/2;
         bottomBoundingBox.height -= 25;
+        bottomBoundingBox.width -= 20;
 
         if (birdBoundingBox.x > topBoundingBox.x && !this.isPassed) {
             score++;
@@ -54,6 +55,12 @@ var PipePair = cc.Sprite.extend({
                 listChild[i].stopAllActions();
             }
             pauseGame();
+            var buttonPause = ccui.Button.create();
+            buttonPause.setTitleText("Restart game");
+            buttonPause.setPosition(cc.winSize.width / 2, cc.winSize.height / 2);
+            buttonPause.setTitleFontSize(20);
+            buttonPause.addClickEventListener(restartGame);
+            gameLayer.addChild(buttonPause);
         }
 
         if(this.getPosition().x<-800){
@@ -64,12 +71,7 @@ var PipePair = cc.Sprite.extend({
 });
 
 function pauseGame() {
-    // gameLayer.addChild(restartSprite);
-    // restartSprite.setPosition(cc.winSize.width / 2, cc.winSize.height / 2);
     gameLayer.pause();
-
-
-
 }
 
 function restartGame() {

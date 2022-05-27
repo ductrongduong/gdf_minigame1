@@ -19,7 +19,6 @@
         "src/**/*.js"
     ],
     "jsList": [
-        "src/RestartSprite.js",
         "src/GameSetting.js",
         "src/Bird.js",
         "src/gamescript.js",
