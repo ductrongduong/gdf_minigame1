@@ -38,22 +38,28 @@ var PipePair = cc.Sprite.extend({
         topBoundingBox.x -= topBoundingBox.width/2; topBoundingBox.y -= topBoundingBox.height/2;
         bottomBoundingBox.x= bottomConverted.x; bottomBoundingBox.y = bottomConverted.y;
         bottomBoundingBox.x -= bottomBoundingBox.width/2; bottomBoundingBox.y -= bottomBoundingBox.height/2;
+        topBoundingBox.width -= 30;
+        // console.log(topBoundingBox.width);
+        // console.log(this.zIndex);
+        birdBoundingBox.height += 10;
         bottomBoundingBox.height -= 25;
         bottomBoundingBox.width -= 20;
 
         if (birdBoundingBox.x > topBoundingBox.x && !this.isPassed) {
+            audioEngine.playEffect('assests/point.wav');
             score++;
             scoreText.setString("Score: "+ score);
             console.log(JSON.stringify(score));
             this.isPassed = true;
         }
 
-        if ((cc.rectIntersectsRect(birdBoundingBox, bottomBoundingBox) || cc.rectIntersectsRect(birdBoundingBox, topBoundingBox)) && bird.invulnerability==0) {
+        if ((cc.rectIntersectsRect(birdBoundingBox, bottomBoundingBox) || cc.rectIntersectsRect(birdBoundingBox, topBoundingBox) || bird.y < 0) && bird.invulnerability==0 && isGameRunning == true) {
             // this.stopAllActions();
-            var listChild = gameLayer.getChildren();
-            for (var i in listChild) {
-                listChild[i].stopAllActions();
-            }
+            isGameRunning = false;
+            audioEngine.playEffect('assests/hit.wav');
+
+            this.unscheduleUpdate();
+
             pauseGame();
             var buttonPause = ccui.Button.create();
             buttonPause.setTitleText("Restart game");
@@ -61,6 +67,7 @@ var PipePair = cc.Sprite.extend({
             buttonPause.setTitleFontSize(20);
             buttonPause.addClickEventListener(restartGame);
             gameLayer.addChild(buttonPause);
+            buttonPause.zIndex = 2;
         }
 
         if(this.getPosition().x<-800){
@@ -71,11 +78,33 @@ var PipePair = cc.Sprite.extend({
 });
 
 function pauseGame() {
-    gameLayer.pause();
+    // .isRunningGame
+    // gameLayer.pause();
+    var birdFall= cc.MoveTo.create(1, cc.p(bird.x, 0));
+    bird.runAction(birdFall);
+    audioEngine.playEffect('assests/die.wav');
+
+    gameLayer.unschedule(this.addPipe);
+    // console.log("hello world");
+    var listChild = gameLayer.getChildren();
+    for (var i in listChild) {
+        if (!(listChild[i] instanceof Bird)) {
+            listChild[i].stopAllActions();
+            console.log(JSON.stringify(listChild[i]));
+        }
+        // listChild[i].stopAllActions();
+
+
+    }
+
+    // gameLayer.unscheduleUpdate();
+
+    // gameLayer.onStopUpdate();
 }
 
 function restartGame() {
     // gameLayer.stopGame();
+    isGameRunning = true;
     score = 0;
     cc.director.runScene(new GameScene());
 

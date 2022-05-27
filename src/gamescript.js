@@ -2,19 +2,23 @@
 var GameScene = cc.Scene.extend({
     onEnter:function () {
         this._super();
+        audioEngine = cc.AudioEngine.getInstance();
         gameLayer = new Game();
         gameLayer.init();
         this.addChild(gameLayer);
     }
 });
 var Game = cc.Layer.extend({
+    audioEngine:null,
     init:function () {
         this._super();
+        isGameRunning = true;
         // this.isRunningGame = true;
         cc.eventManager.addListener({
             event: cc.EventListener.MOUSE,
             onMouseDown: function(event){
                 bird.engineOn = true;
+                audioEngine.playEffect('assests/wing.wav');
             },
             onMouseUp: function(event){
                 bird.engineOn = false;
@@ -26,6 +30,7 @@ var Game = cc.Layer.extend({
         this.schedule(this.addPipe,1.5);
         bird = new Bird();
         this.addChild(bird);
+        bird.zIndex = 2;
 
 
         //add score
@@ -36,27 +41,43 @@ var Game = cc.Layer.extend({
         scoreText.setGlobalZOrder(1);
 
     },
+
+    // onEnter: function () {
+    //     this.audioEngine = cc.AudioEngine.getInstance();
+    // },
     // stopGame: function () {
     //      this.isRunningGame = false;
     // },
     update:function(dt){
         // if (!this.isRunningGame)
         //     return;
-        background.scroll();
+        if (isGameRunning) {
+            background.scroll();
+        }
         bird.updateY();
-
     },
     addPipe:function(event){
-        var pipes = new PipePair();
-        this.addChild(pipes, 1);
-        pipes.setGlobalZOrder(2);
+        if (isGameRunning) {
+            var pipes = new PipePair();
+            this.addChild(pipes, 1);
+            pipes.setGlobalZOrder(2);
+        }
     },
     removePipe:function(pipe){
         this.removeChild(pipe);
     },
     removeBird:function (bird) {
         this.removeChild(bird);
-    }
+    },
+    playSoundDie:function(){
+        this.audioEngine.playMusic("assests/die.wav", true);
+    },
+    playSoundHit:function(){
+        this.audioEngine.playMusic("assests/hit.wav");
+    },
+    playSoundPoint:function(){
+        this.audioEngine.playMusic("assests/point.wav");
+    },
 });
 //hello
 var ScrollingBG = cc.Sprite.extend({

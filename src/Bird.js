@@ -21,9 +21,13 @@ var Bird = cc.Sprite.extend({
         }
         this.setPosition(this.getPosition().x,this.getPosition().y+this.ySpeed);
         this.ySpeed += GAME_GRAVITY;
+        // console.log(this.ySpeed);
         if (this.ySpeed > 0) {
             this.setRotation(-35);
         }
+        // else if (this.ySpeed > -3.5 && this.ySpeed < -3.5+0.14) {
+        //     audioEngine.playEffect('assests/swooshing.wav');
+        // }
         else {
             this.setRotation(35);
         }
