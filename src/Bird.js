@@ -19,7 +19,11 @@ var Bird = cc.Sprite.extend({
             this.invulnerability --;
             this.setOpacity(255-this.getOpacity());
         }
-        this.setPosition(this.getPosition().x,this.getPosition().y+this.ySpeed);
+        if (this.y > cc.winSize.height) {
+            this.setPosition(this.getPosition().x,cc.winSize.height);
+        }
+        else
+            this.setPosition(this.getPosition().x,this.getPosition().y+this.ySpeed);
         this.ySpeed += GAME_GRAVITY;
         // console.log(this.ySpeed);
         if (this.ySpeed > 0) {

@@ -22,6 +22,7 @@
         "src/GameSetting.js",
         "src/Bird.js",
         "src/gamescript.js",
+        "src/ground.js",
         "src/loadassets.js",
         "src/Pipe.js",
         "src/PipePair.js",
